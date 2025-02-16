@@ -1,0 +1,70 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MOOMS.DEV\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-27 21:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0\n"
+"X-Domain: gaumap"
+
+#: setup/post-types/custom-field-content.php:114
+msgid "Add post related:"
+msgstr ""
+
+#: setup/post-types/custom-field-content.php:238
+msgid "Choose blogs:"
+msgstr ""
+
+#: setup/post-types/custom-field-content.php:194
+msgid "Choose post:"
+msgstr ""
+
+#: setup/post-types/custom-field-content.php:215
+msgid "Choose projects:"
+msgstr ""
+
+#: setup/post-types/custom-field-content.php:257
+#: setup/post-types/custom-field-content.php:271
+msgid "Choose services:"
+msgstr ""
+
+#: setup/post-types/custom-field-content.php:20
+msgid "Content"
+msgstr ""
+
+#: setup/gutenberg_blocks.php:6 setup/blocks/sample.php:6
+msgid "Demo Block"
+msgstr ""
+
+#: header.php:40
+msgid "Discover"
+msgstr ""
+
+#. Name of the theme
+msgid "mooms_dev_v1/theme"
+msgstr ""
+
+#: setup/users/auth.php:68 setup/users/auth.php:107
+msgid "Mã nhận dạng không chính xác"
+msgstr ""
+
+#: setup/users/auth.php:27
+msgid "Token mismatch!"
+msgstr ""
+
+#: part_templates/breadcrumb.php:11
+msgid "Trang chủ"
+msgstr ""
+
+#: setup/users/auth.php:31
+msgid "Your username or password does not match, please try again!"
+msgstr ""
