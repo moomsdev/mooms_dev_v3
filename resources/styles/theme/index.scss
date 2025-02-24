@@ -11,6 +11,8 @@
 @use "./layout/general.scss" as *;
 @use "./layout/header.scss" as *;
 
+@use "./pages/404.scss" as *;
+
 @use "./_sprite.scss";
 @import "~@csstools/normalize.css";
 // @import "~bootstrap/dist/bootstrap.css";
