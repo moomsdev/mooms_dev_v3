@@ -419,14 +419,6 @@ function contactform_dequeue_scripts()
 add_action('wp_enqueue_scripts', 'contactform_dequeue_scripts', 99);
 
 /**
- * Remove unnecessary admin menus
- */
-add_action('admin_init', function () {
-    remove_menu_page('edit-comments.php');
-    remove_menu_page('edit.php');
-});
-
-/**
  * Remove jQuery Migrate
  */
 add_action('wp_default_scripts', function ($scripts) {
@@ -504,3 +496,57 @@ function getListAllPages()
 
     return $list;
 }
+
+/**
+ * add disallowed comment keys
+ */
+function mytheme_update_disallowed_comment_keys() {
+    // Danh sách các từ khóa cần chặn
+    $disallowed_keys = implode("\n", array(
+        "googlemail.com",
+        "http://",
+        "https://",
+        "[url",
+        "yahoo.com",
+        "inbox.com",
+        "fmailbox.com",
+        "live.de",
+        "freenet.de",
+        "yahoo.de",
+        "emailcorner.net",
+        "snail-mail.net",
+        "arcor.de",
+        "aol.com",
+        "gawab.com",
+        "bigstring.com",
+        "web.de",
+        "nospammail.net",
+        "hotmail.com",
+        "atrimoney.site",
+        "gmai1.homes",
+        "[b]",
+        "Bitcoin(BTC):",
+        "merepost.com",
+        "88nb.cc",
+        "contentwriting",
+        "@op.pl"
+    ));
+
+    // Lấy danh sách hiện tại
+    $existing_keys = get_option('disallowed_keys', '');
+
+    // Kiểm tra nếu danh sách chưa tồn tại hoặc chưa có đủ giá trị thì cập nhật
+    if (empty($existing_keys)) {
+        update_option('disallowed_keys', $disallowed_keys);
+    } else {
+        // Hợp nhất danh sách tránh trùng lặp
+        $new_keys = explode("\n", $disallowed_keys);
+        $existing_keys_array = explode("\n", $existing_keys);
+        $merged_keys = array_unique(array_merge($existing_keys_array, $new_keys));
+
+        update_option('disallowed_keys', implode("\n", $merged_keys));
+    }
+}
+
+// Hook function chạy ngay trong admin
+add_action('admin_init', 'mytheme_update_disallowed_comment_keys');

@@ -204,7 +204,6 @@ function thePagination($query = null) {
     }
 }
 
-
 /**
  * Tạo breadcrumb
  */

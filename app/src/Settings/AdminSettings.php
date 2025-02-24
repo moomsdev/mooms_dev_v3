@@ -47,6 +47,14 @@ class AdminSettings {
         if (get_option('_disable_use_weak_password') === 'yes') {
             $this->disableCheckboxUseWeakPassword();
         }
+
+        if (get_option('_disable_posts') === 'yes') {
+            $this->disablePostsMenu();
+        }
+
+        if (get_option('_disable_comments') === 'yes') {
+            $this->disableCommentsMenu();
+        }
     }
 
     public function addCustomExtensionsInMediaUpload() {
@@ -91,6 +99,18 @@ class AdminSettings {
                 });
             </script>
             <?php
+        });
+    }
+
+    public function disablePostsMenu() {
+        add_action('admin_menu', static function () {
+            remove_menu_page('edit.php');
+        });
+    }
+
+    public function disableCommentsMenu() {
+        add_action('admin_menu', static function () {
+            remove_menu_page('edit-comments.php');
         });
     }
 
@@ -185,7 +205,7 @@ class AdminSettings {
         add_action('admin_bar_menu', static function ($wp_admin_bar) use ($author) {
             $args = [
                 'id'    => 'logo_author',
-                'title' => '<img src="' . get_site_url() . "/wp-content/themes/mooms_dev/resources/images/dev/moomsdev-white.png" . '" style="height: 1rem; padding-top:.3rem;" alt="' . AUTHOR['name'] . '">',
+                'title' => '<img src="' . get_site_url() . "/wp-content/themes/mooms_dev_v3/resources/images/dev/moomsdev-white.png" . '" style="height: 1rem; padding-top:.3rem;" alt="' . AUTHOR['name'] . '">',
                 'href'  => $author['website'],
                 'meta'  => [
                     'target' => '_blank',
@@ -294,6 +314,8 @@ class AdminSettings {
                                     Field::make('checkbox', 'is_maintenance', __('Turn on website maintenance mode', 'gaumap')),
                                     Field::make('checkbox', 'disable_admin_confirm_email', __('Turn off the feature to change email admin need to verify email', 'gaumap'))->set_default_value('true'),
                                     Field::make('checkbox', 'disable_use_weak_password', __('Turn off the feature that allows the use of weak passwords', 'gaumap')),
+                                    Field::make('checkbox', 'disable_posts', __('Hide Posts menu', 'gaumap')),
+                                    Field::make('checkbox', 'disable_comments', __('Hide Comments menu', 'gaumap')),
                                 ])
                                 ->add_tab(__('SMTP', 'gaumap'), [
                                     Field::make('checkbox', 'use_smtp', __('Sử dụng SMTP để gửi mail', 'gaumap')),
